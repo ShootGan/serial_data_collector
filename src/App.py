@@ -3,6 +3,7 @@ from tkinter import Tk, ttk
 
 class MainWindow(Tk):
     """Main window init class"""
+
     def __init__(self):
         super().__init__()
         self.title("Serial data collector")
