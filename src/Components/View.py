@@ -49,7 +49,7 @@ class Theme:
         self.parent.layout.configure(
             'dark.TFrame', background=self.colors[theme][0])
         # label
-        self.parent.layout.configure('TLabel', background=self.colors[theme][0], relief='flat', font=(
+        self.parent.layout.configure('TLabel', background=self.colors[theme][1], relief='flat', font=(
             'catamaran 13 bold'), foreground=self.colors[theme][3])
         self.parent.layout.configure(
             'small.TLabel', background=self.colors[theme][1], font=('catamaran 11 bold'), anchor='w')
@@ -71,6 +71,12 @@ class Theme:
 
         self.parent.layout.map('light.TButton', background=[('pressed', '!disabled', self.colors[theme][0]), (
             'active', self.colors[theme][0]), ('selected', self.colors[theme][0])])
+
+        # combobox
+        self.parent.layout.configure(
+            'combo.TButton', background=self.colors[theme][0], anchor='center')
+        self.parent.layout.map('combo.TButton', background=[('pressed', '!disabled', self.colors[theme][1]), (
+            'active', self.colors[theme][1]), ('selected', self.colors[theme][1])])
 
         # entry
         self.parent.layout.configure('TEntry', background=self.colors[theme][1], insertcolor=self.colors[theme][3], foreground=self.colors[theme]
