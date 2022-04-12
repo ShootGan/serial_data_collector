@@ -1,4 +1,5 @@
-from tkinter import Tk, ttk
+from tkinter import Tk
+from Components import View
 
 
 class MainWindow(Tk):
@@ -8,11 +9,15 @@ class MainWindow(Tk):
         super().__init__()
         self.title("Serial data collector")
         self.geometry("400x400")
-        self.after(1, self.init_ui)
 
-    def init_ui(self) -> None:
-        self.combobox = ttk.Combobox(self)
-        self.combobox.pack(anchor="center", expand=True)
+        # apply custom layout
+        View.Layout(self)
+
+        # init ui
+        self.after(1, self.__init_ui)
+
+    def __init_ui(self) -> None:
+        pass
 
 
 if __name__ == "__main__":
