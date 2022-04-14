@@ -39,8 +39,10 @@ jobs:
       run: |
         python -m pytest
     - name: Build coverage file
+      if: github.event_name == 'pull_request'
       run: |
         python -m  pytest --cache-clear --cov=src tests/ > pytest-coverage.txt
     - name: Comment coverage
+      if: github.event_name == 'pull_request'
       uses: coroo/pytest-coverage-commentator@v1.0.2
         
