@@ -1,5 +1,5 @@
 from tkinter import Tk
-from Components import View
+from src.Components import View
 from Pages.PortPage import PortPage
 from Components.Debugger import Debugger
 

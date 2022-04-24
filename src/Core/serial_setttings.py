@@ -1,11 +1,16 @@
 import serial.tools.list_ports
 
+bitrate_table = (1200, 2400, 4800, 9600, 115200)
+defult_samle_rate = 1000
+
 
 class SerialSettings():
     """class contain parameters for serial port"""
+
     def __init__(self):
-        self.bit_rate = (1200, 2400, 4800, 9600, 115200)
+        self.bit_rate = bitrate_table
         self.ports = self._get_ports()
+        self.sample_rate = 1000
         self.current_bitrate = 9600
         self.current_port = None
 
@@ -22,9 +27,8 @@ class SerialSettings():
 
         self.current_bitrate = value
 
-    def update_port(self, port:str)-> None:
+    def update_port(self, port: str) -> None:
         if port in list(self.ports):
             self.current_port = port
         else:
             raise Exception("port doesn't exist")
-
